@@ -1,0 +1,69 @@
+extends layout.pug
+
+block style
+  link(rel = "stylesheet" href = "/style/myaccount.css")
+
+block content
+  section.Myaccount
+    p Welcome, #{fname}
+  section.carton
+    #wishList.block(onclick="location.href='/wishlist';" style='cursor: pointer;')
+      .img
+        img(src='images/MyAccount_Icons/favourite.webp' width='90px' height='90px' alt='wish-list')
+      .text
+        p
+          strong WISH LIST
+          br
+          |  Check out your favourite collection
+    #order.block(onclick="location.href='#';" style='cursor: pointer;')
+      .img
+        img(src='images/MyAccount_Icons/orders.svg' width='100px' height='100px' alt='Track-your-order')
+      .text
+        p
+          strong MY ORDERS
+          br
+          |  Track, return or buy things again
+    #productReview.block(onclick="location.href='#';" style='cursor: pointer;')
+      .img
+        img(src='images/MyAccount_Icons/productReview.png' width='85px' height='85px' alt='productReview')
+      .text
+        p
+          strong MY REVIEWS
+          br
+          |  Check your product reviews here
+    #security.block(onclick="location.href='/editProfile';" style='cursor: pointer;')
+      .img
+        img(src='images/MyAccount_Icons/loginSecurity.png' width='100px' height='100px' alt='Login-and-Security')
+      .text
+        p
+          strong EDIT PROFILE DETAILS
+          br
+          |  Edit name, mobile number and email
+    #address.block(onclick="location.href='/myaddress';" style='cursor: pointer;')
+      .img
+        img(src='images/MyAccount_Icons/address.jpeg' width='100px' height='100px' alt='Your-Address')
+      .text
+        p
+          strong MY ADDRESS
+          br
+          |  Edit addresses for new orders
+    #payment.block(onclick="location.href='/changePass';" style='cursor: pointer;')
+      .img
+        img(src='images/MyAccount_Icons/change-password.png' width='100px' height='100px' alt='Payment-options')
+      .text
+        p
+          strong Change Password
+          br
+          |  Change current password
+    #contact.block(onclick="location.href='#';" style='cursor: pointer;')
+      .img
+        img(src='images/MyAccount_Icons/contactUs.png' width='90px' height='90px' alt='Contact-us')
+      .text
+        p
+          strong CONTACT US
+          br
+          |  Contact our customer service here
+
+
+//- Payment Options
+//- Edit or add payment methods

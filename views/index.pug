@@ -1,0 +1,152 @@
+extends layout.pug
+
+block content
+  .banner
+  h3.heading Aarambah
+  .container.mb-5
+    #carouselExampleControlsFirst.carousel.slide.d-none.d-sm-block.carousel-fade(data-bs-ride='carousel')
+      .carousel-inner
+        .carousel-item.active
+          .card-wrapper
+            -for(let i=0; i<Math.min(4, product_data.length); i++)
+              a.card.featured(href = '/product/' + product_data[i]._id)
+                img.card-img-top(src=`/${product_data[i].imageUrl}`)
+                //- img.card-img-top(src='images/saree_images/'+product_data[i].image.data)
+                .card-body
+                  h5.card-title= product_data[i].name
+        if(product_data.length >= 5)
+          .carousel-item
+            .card-wrapper
+              -for(let i=4; i<Math.min(8, product_data.length); i++)
+                a.card.featured(href = '/product/' + product_data[i]._id)
+                  img.card-img-top(src=`/${product_data[i].imageUrl}`)
+                  //- img.card-img-top(src='images/saree_images/'+product_data[i].image.data)
+                  .card-body
+                    h5.card-title= product_data[i].name
+      button.carousel-control-prev(type='button' data-bs-target='#carouselExampleControlsFirst' data-bs-slide='prev')
+        span.carousel-control-prev-icon(aria-hidden='true')
+        span.visually-hidden Previous
+      button.carousel-control-next(type='button' data-bs-target='#carouselExampleControlsFirst' data-bs-slide='next')
+        span.carousel-control-next-icon(aria-hidden='true')
+        span.visually-hidden Next
+    #carouselExampleControlsSmallFirst.carousel.slide.d-sm-none.carousel-fade(data-bs-ride='carousel')
+      .carousel-inner
+        .carousel-item.active
+            if product_data.length != 0
+              a.card.featured(href = '/product/' + product_data[0]._id)
+                img.card-img-top(src=src=`/${product_data[0].imageUrl}`)
+                //- img.card-img-top(src='images/saree_images/'+product_data[0].image.data)
+                .card-body
+                  h5.card-title= product_data[0].name
+              -for(let i=1; i<Math.min(8, product_data.length); i++)
+                .carousel-item
+                  a.card.featured(href = '/product/' + product_data[i]._id)
+                    img.card-img-top(src=`/${product_data[i].imageUrl}`)
+                    //- img.card-img-top(src='images/saree_images/'+product_data[i].image.product_data)
+                    .card-body
+                      h5.card-title= product_data[i].name
+      button.carousel-control-prev(type='button' data-bs-target='#carouselExampleControlsSmallFirst' data-bs-slide='prev')
+        span.carousel-control-prev-icon(aria-hidden='true')
+        span.visually-hidden Previous
+      button.carousel-control-next(type='button' data-bs-target='#carouselExampleControlsSmallFirst' data-bs-slide='next')
+        span.carousel-control-next-icon(aria-hidden='true')
+        span.visually-hidden Next
+  // Customization Section
+  .customize
+    p Personalize your saree according to your preferences here!
+    a(href='/customize') Customize here
+  // Review Section
+  section.review
+    h3.heading Customer Review
+    p.overview What our customers say about our beautiful sarees!
+    .container.mb-5
+      #carouselExampleControlsReview.carousel.slide.d-none.d-sm-block(data-bs-ride='carousel')
+        .carousel-inner
+          .carousel-item.active
+            .card-wrapper
+              .card.comment
+                p.name Aahana Pandey
+                b I love the sarees of WeNari&#x2763;&#xFE0F;
+                p.content
+                  | Lorem ipsum dolor sit amet consectetur adipisicing elit. Est earum
+                  | adipisci, similique tempora ut esse mollitia quidem fugiat eum dolore consequuntur
+                  | quaerat ipsam ipsa ipsum.
+              .card.comment
+                p.name Nancy Singh
+                b Quality is just great&#x1F917;
+                p.content
+                  | Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum,
+                  | molestias vel rerum facilis reprehenderit ad?
+              .card.comment
+                p.name Riya
+                b Quality is just great&#x1F917;
+                p.content
+                  | Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum,
+                  | molestias vel rerum facilis reprehenderit ad?
+          .carousel-item
+            .card-wrapper
+              .card.comment
+                p.name Jhanvi Kumari
+                b WeNari never disappoints me&#x1F60A;
+                p.content
+                  | Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur,
+                  | repellat?
+              .card.comment
+                p.name Ayushi Tripathi
+                b Seamless delivery by WeNari&#x1F929;
+                p.content
+                  | Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque, ipsum
+                  | odio saepe repellat et autem dolores dolore dicta velit totam? Sed modi cum hic
+                  | repellendus similique quidem eligendi?
+              .card.comment
+                p.name Neha
+                b Seamless delivery by WeNari&#x1F929;
+                p.content
+                  | Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque, ipsum
+                  | odio saepe repellat et autem dolores dolore dicta velit totam? Sed modi cum hic
+                  | repellendus similique quidem eligendi?
+        button.carousel-control-prev(type='button' data-bs-target='#carouselExampleControlsReview' data-bs-slide='prev')
+          span.carousel-control-prev-icon(aria-hidden='true')
+          span.visually-hidden Previous
+        button.carousel-control-next(type='button' data-bs-target='#carouselExampleControlsReview' data-bs-slide='next')
+          span.carousel-control-next-icon(aria-hidden='true')
+          span.visually-hidden Next
+      #carouselExampleControlsSmallScreenReview.carousel.slide.d-sm-none(data-bs-ride='carousel')
+        .carousel-inner
+          .carousel-item.active
+            .card.comment
+              p.name Aahana Pandey
+              b I love the sarees of WeNari&#x2763;&#xFE0F;
+              p.content
+                | Lorem ipsum dolor sit amet consectetur adipisicing elit. Est earum
+                | adipisci, similique tempora ut esse mollitia quidem fugiat eum dolore consequuntur
+                | quaerat ipsam ipsa ipsum.
+          .carousel-item
+            .card.comment
+              p.name Nancy Singh
+              b Quality is just great&#x1F917;
+              p.content
+                | Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum, molestias
+                | vel rerum facilis reprehenderit ad?
+          .carousel-item
+            .card.comment
+              p.name Jhanvi Kumari
+              b WeNari never disappoints me&#x1F60A;
+              p.content
+                | Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur,
+                | repellat?
+          .carousel-item
+            .card.comment
+              p.name Ayushi Tripathi
+              b Seamless delivery by WeNari&#x1F929;
+              p.content
+                | Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque, ipsum
+                | odio saepe repellat et autem dolores dolore dicta velit totam? Sed modi cum hic
+                | repellendus similique quidem eligendi?
+        button.carousel-control-prev(type='button' data-bs-target='#carouselExampleControlsSmallScreenReview' data-bs-slide='prev')
+          span.carousel-control-prev-icon(aria-hidden='true')
+          span.visually-hidden Previous
+        button.carousel-control-next(type='button' data-bs-target='#carouselExampleControlsSmallScreenReview' data-bs-slide='next')
+          span.carousel-control-next-icon(aria-hidden='true')
+          span.visually-hidden Next
+      p.last And many more...&#x1F64C;

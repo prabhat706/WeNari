@@ -1,0 +1,39 @@
+{
+  "name": "we-nari-internship-project-",
+  "version": "1.0.0",
+  "description": "It's a E-Commerce Website (WeNari)",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NishankDeep/We-Nari-Internship-Project-.git"
+  },
+  "author": "Prateek",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/NishankDeep/We-Nari-Internship-Project-/issues"
+  },
+  "homepage": "https://github.com/NishankDeep/We-Nari-Internship-Project-#readme",
+  "dependencies": {
+    "bcrypt": "^5.1.0",
+    "connect-mongodb-session": "^3.1.1",
+    "csurf": "^1.11.0",
+    "dotenv": "^16.3.1",
+    "email-validator": "^2.0.4",
+    "express": "^4.18.2",
+    "express-session": "^1.17.3",
+    "localStorage": "^1.0.4",
+    "mongoose": "^6.7.0",
+    "multer": "^1.4.5-lts.1",
+    "node-localstorage": "^2.2.1",
+    "nodemon": "^2.0.22",
+    "passport": "^0.6.0",
+    "passport-local": "^1.0.0",
+    "passport-local-mongoose": "^7.1.2",
+    "pug": "^3.0.2",
+    "store2": "^2.14.2"
+  }
+}

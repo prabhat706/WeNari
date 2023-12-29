@@ -1,0 +1,83 @@
+extends layout.pug
+
+block style
+  script(src='https://kit.fontawesome.com/57c20b0d98.js' crossorigin='anonymous')
+  link(rel='stylesheet' href='https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200')
+  link(rel='stylesheet' href='/style/product_details.css')
+
+block content
+  .container.details_container
+    .left
+      .img-description
+        .img-options
+          img(src=`/${product.imageUrl}` alt='' onclick='clicking(this)')
+        form(action = '/addToWishlist' method = 'post')
+          input(type="hidden" name="_csrf" value=`${csrfToken}`)
+          input(type = 'hidden' name = 'id' value = product._id)
+          .main-img
+            img#change(src=`/${product.imageUrl}` alt='')
+          input#toggle-heart(type = 'checkbox' name = 'wishlistToggle' onChange = "this.form.submit()" checked = flag)
+          label(type = 'submit' for = 'toggle-heart') ❤ 
+      .buttons 
+        form(action = '/cart' method = 'post')
+          input(type="hidden" name="_csrf" value=`${csrfToken}`)
+          input(type = "hidden" name ="id" value =`${product. _id}`)
+          button.btns.btn(type = "submit") ADD TO CART
+        a(href='/buyNow/'+product. _id)
+          button(class="btn").btns.btn BUY NOW
+    .right
+      .prod-header
+        h1= product.name
+      .price-details
+        span.price
+          strong Rs. #{product.price}
+        span.taxes inclusive of all taxes
+      hr
+      .prod-details
+        .meta-data
+          h3 Product Info
+          span 100% Original Products
+          span Pay on delivery might be available
+          span Easy 30 days returns and exchanges
+          span Try &amp; Buy might be available
+      hr
+      .details
+        .special-heading
+          h3 Specifications
+        table.table-content
+          tr
+            td
+              strong Pack of
+            td.table-details 1
+          tr
+            td
+              strong Shape
+            td.table-details Fit and Flare
+          tr
+            td
+              strong Occasion
+            td.table-details= product.occasion
+          tr
+            td
+              strong Fabric Type
+            td.table-details= product.fabric
+          tr
+            td
+              strong Print or Pattern Type
+            td.table-details= product.pattern
+          tr
+            td
+              strong Knit or Woven
+            td.table-details Woven
+          tr
+            td
+              strong Transparency
+            td.table-details Opaque
+      .Description
+        .heading
+          h2 Product Description
+        .prod-content
+          span= product.description
+
+block scripts
+  script(src='/js/product_details.js')

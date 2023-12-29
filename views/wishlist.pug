@@ -1,0 +1,42 @@
+extends layout.pug
+
+block style
+  link(rel="stylesheet" href = "/style/cart.css")
+
+block content
+  if(wishlistItems.length == 0)
+    h1.heading Wishlist is empty!
+  else
+    h1.heading Wishlist
+    -let totalPrice = 0
+    .products
+      each val in wishlistItems
+        -totalPrice += val.price
+        a.product-link(href = '/product/'+val._id)
+          .product-thumbnail
+            img.saree-image(src=`/${val.imageUrl}`)
+            //- img.saree-image(src="/images/saree_images/"+val.image.data)
+            .product-details
+              p.name= val.name
+              p.price Rs. #{val.price}
+              br
+              form(action = '/removeFromWishlist' method = 'post')
+                input(type="hidden" name="_csrf" value=`${csrfToken}`)  
+                input(type = "hidden" name = "productId" value = `${val._id}`)
+                button(type = 'submit' class="btn") Remove
+    //-   .total
+        .special-heading
+          h3 Total
+        table.table-content
+          -let s = "items"
+          -if(wishlistItems.length == 1) s = "item"
+          tr
+
+            td.table-left Price ( #{wishlistItems.length} #{s})
+            td.table-details ₹#{totalPrice}
+          tr
+            td.table-left Delivery Charges
+            td.table-details FREE
+          tr
+            td.table-left Total Payable
+            td.table-details ₹#{totalPrice}
